@@ -1,12 +1,12 @@
-import type { NextPage } from 'next';
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { AgGridReact } from "ag-grid-react"; 
 import "ag-grid-community/styles/ag-theme-alpine.css"; 
 import "ag-grid-community/styles/ag-grid.css"; //
+import 'ag-grid-enterprise';
 
-const AgGrid: NextPage = () => {
+const AgGrid = () => {
 
     // const gridRef = useRef(null); // Optional - for accessing Grid's API
     const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
@@ -19,7 +19,8 @@ const AgGrid: NextPage = () => {
 
     // DefaultColDef sets props common to all Columns
     const defaultColDef = useMemo(() => ({
-        sortable : true
+        sortable : true,
+        enablePivot: true,
     }), []);
 
     // Example of consuming Grid Event
@@ -57,7 +58,7 @@ const AgGrid: NextPage = () => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <button onClick={buttonListener}>Push Me</button>
-        <div className="ag-theme-alpine" style={{ width: "100%", height: 500 }}>
+        <div className="ag-theme-alpine" style={{ width: "100%", height: "100vh" }}>
             <AgGridReact
                 ref={gridRef} // Ref for accessing Grid's API
                 rowData={rowData} // Row Data for Rows
@@ -66,6 +67,7 @@ const AgGrid: NextPage = () => {
                 animateRows={true} // Optional - set to 'true' to have rows animate when sorted
                 rowSelection="multiple" // Options - allows click selection of rows
                 onCellClicked={cellClickedListener} // Optional - registering for Grid Event
+                sideBar={true}
             />
         </div>
       

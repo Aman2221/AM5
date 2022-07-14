@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Line } from "@ant-design/plots";
 import Head from 'next/head'
 
@@ -6,39 +6,48 @@ const DemoLine = () => {
   const data = [
     {
       year: "1991",
-      value: 3
+      value: 3,
+      data : 3
     },
     {
       year: "1992",
-      value: 4
+      value: 4,
+      data : 3
     },
     {
       year: "1993",
-      value: 3.5
+      value: 3.5,
+      data : 3
     },
     {
       year: "1994",
-      value: 5
+      value: 5,
+      data : 3
     },
     {
       year: "1995",
-      value: 4.9
+      value: 4.9,
+      data : 3
     },
     {
       year: "1996",
-      value: 6
+      value: 6,
+      data : 3
     },
     {
       year: "1997",
-      value: 7
+      value: 7,
+      data : 3
     },
     {
       year: "1998",
-      value: 9
+      value: 9,
+      data : 3
     },
     {
       year: "1999",
-      value: 13
+      value: 13,
+      data : 3
     }
   ];
 
@@ -46,18 +55,19 @@ const DemoLine = () => {
     data,
     xField: "year",
     yField: "value",
+    zField: "data",
     label: {},
     point: {
       size: 5,
-      shape: "diamond",
+      shape: "circle",
       style: {
-        fill: "white",
-        stroke: "#5B8FF9",
-        lineWidth: 2
+        fill: "red",
+        stroke: "lime",
+        lineWidth: 5
       }
     },
     tooltip: {
-      showMarkers: false
+      showMarkers: true
     },
     state: {
       active: {

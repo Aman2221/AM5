@@ -1,36 +1,14 @@
-'use strict';
-
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { AgGridReact } from '@ag-grid-community/react';
-// import '@ag-grid-community/styles/ag-grid.css';
-// import '@ag-grid-community/styles/ag-theme-alpine.css';
-import "@ag-grid-community/all-modules/dist/styles/ag-grid.css"
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css"
-import {
-  ColDef,
-  GridReadyEvent,
-  SideBarDef,
-} from '@ag-grid-community/core';
-import { IOlympicData } from '../components/interface';
-import { ModuleRegistry } from '@ag-grid-community/core';
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
-import { FiltersToolPanelModule } from '@ag-grid-enterprise/filter-tool-panel';
-import { SetFilterModule } from '@ag-grid-enterprise/set-filter';
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-enterprise';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-// Register the required feature modules with the Grid
-ModuleRegistry.registerModules([
-  ClientSideRowModelModule,
-  ColumnsToolPanelModule,
-  FiltersToolPanelModule,
-  SetFilterModule,
-]);
-
-const GridExample = () => {
+const GridTest = () => {
   const containerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
   const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
-  const [rowData, setRowData] = useState<IOlympicData[]>();
-  const [columnDefs, setColumnDefs] = useState<ColDef[]>([
+  const [rowData, setRowData] = useState();
+  const [columnDefs, setColumnDefs] = useState([
     { field: 'athlete', filter: 'agTextColumnFilter', minWidth: 200 },
     { field: 'age' },
     { field: 'country', minWidth: 180 },
@@ -41,7 +19,9 @@ const GridExample = () => {
     { field: 'bronze' },
     { field: 'total' },
   ]);
-  const defaultColDef = useMemo<ColDef>(() => {
+
+  //all the customizations for the grid
+  const defaultColDef = useMemo(() => {
     return {
       flex: 1,
       minWidth: 100,
@@ -55,49 +35,26 @@ const GridExample = () => {
       filter: true,
     };
   }, []);
-  const sideBar = useMemo<
-    SideBarDef | string | string[] | boolean | null
-  >(() => {
-    return {
-      toolPanels: [
-        'columns',
-        {
-          id: 'filters',
-          labelKey: 'filters',
-          labelDefault: 'Filters',
-          iconKey: 'menu',
-          toolPanel: 'agFiltersToolPanel',
-        },
-        {
-          id: 'filters 2',
-          labelKey: 'filters',
-          labelDefault: 'Filters XXXXXXXX',
-          iconKey: 'filter',
-          toolPanel: 'agFiltersToolPanel',
-        },
-      ],
-      defaultToolPanel: 'filters',
-    };
-  }, []);
 
-  const onGridReady = useCallback((params: GridReadyEvent) => {
+  const onGridReady = useCallback((params : any) => {
     fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data: IOlympicData[]) => setRowData(data));
+      .then((data) => setRowData(data));
   }, []);
 
   return (
-    <div style={containerStyle}>
+    <div style={{ width: '100%', height: '100vh'}}>
       <div style={gridStyle} className="ag-theme-alpine">
-        <AgGridReact<IOlympicData>
+        <AgGridReact
           rowData={rowData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
-          sideBar={sideBar}
+          sideBar={true}
           onGridReady={onGridReady}
         ></AgGridReact>
       </div>
     </div>
   );
 };
-export default GridExample;
+
+export default GridTest;

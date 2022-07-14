@@ -24,7 +24,7 @@ const AntDynamic = () => {
     seriesField: 'name',
     yAxis: {
       label: {
-        formatter: (v) => `${(v / 10e8).toFixed(1)} B`,
+        formatter: (v:any) => `${(v / 10e8).toFixed(1)} B`,
       },
     },
     legend: {
@@ -34,7 +34,7 @@ const AntDynamic = () => {
     animation: {
       appear: {
         animation: 'path-in',
-        duration: 5000,
+        duration: 7000,
       },
     },
   };

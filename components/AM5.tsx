@@ -1,46 +1,179 @@
-import React, { useRef, useEffect } from "react";
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
-// import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-// am4core.useTheme(am4themes_animated);
+import { useLayoutEffect } from "react";
+import * as am5 from "@amcharts/amcharts5";
+import * as am5xy from "@amcharts/amcharts5/xy";
+import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
-const AM5 = () => {
-  const chart: any = useRef()
-  useEffect(() => {
-    const { current: container }: any = chart;
-    let x: any = am4core.create(container, am4charts.XYChart);
-    console.log(container)
-    x.paddingRight = 20;
-    let data: any = [];
-    let visits = 10;
-    for (let i = 1; i < 366; i++) {
-      visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-      data.push({
-        date: new Date(2018, 0, i),
-        name: "name" + i,
-        value: visits,
+const Barchart = () => {
+  useLayoutEffect(() => {
+    let root = am5.Root.new("chartdiv");
+
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    let chart : any = root.container.children.push(
+      am5xy.XYChart.new(root, {
+        panX: false,
+        panY: false,
+        wheelX: "panX",
+        wheelY: "zoomX",
+        layout: root.verticalLayout
+      })
+    );
+
+    // Add scrollbar
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+    chart.set(
+      "scrollbarX",
+      am5.Scrollbar.new(root, {
+        orientation: "horizontal"
+      })
+    );
+
+    let data = [
+      {
+        year: "2016",
+        income: 23.5,
+        expenses: 21.1
+      },
+      {
+        year: "2017",
+        income: 26.2,
+        expenses: 30.5
+      },
+      {
+        year: "2018",
+        income: 30.1,
+        expenses: 34.9
+      },
+      {
+        year: "2019",
+        income: 29.5,
+        expenses: 31.1
+      },
+      {
+        year: "2020",
+        income: 30.6,
+        expenses: 28.2,
+        strokeSettings: {
+          stroke: chart.get("colors").getIndex(1),
+          strokeWidth: 3,
+          strokeDasharray: [5, 5]
+        }
+      },
+      {
+        year: "2021",
+        income: 34.1,
+        expenses: 32.9,
+        columnSettings: {
+          strokeWidth: 1,
+          strokeDasharray: [5],
+          fillOpacity: 0.2
+        },
+        info: "(projection)"
+      }
+    ];
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    let xAxis = chart.xAxes.push(
+      am5xy.CategoryAxis.new(root, {
+        categoryField: "year",
+        renderer: am5xy.AxisRendererX.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {})
+      })
+    );
+
+    xAxis.data.setAll(data);
+
+    let yAxis = chart.yAxes.push(
+      am5xy.ValueAxis.new(root, {
+        min: 0,
+        extraMax: 0.1,
+        renderer: am5xy.AxisRendererY.new(root, {})
+      })
+    );
+
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+
+    let series1 = chart.series.push(
+      am5xy.ColumnSeries.new(root, {
+        name: "Income",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "income",
+        categoryXField: "year",
+        tooltip:am5.Tooltip.new(root, {
+          pointerOrientation:"horizontal",
+          labelText:"{name} in {categoryX}: {valueY} {info}"
+        })
+      })
+    );
+
+    series1.columns.template.setAll({
+      tooltipY: am5.percent(10),
+      templateField: "columnSettings"
+    });
+
+    series1.data.setAll(data);
+
+    let series2 = chart.series.push(
+      am5xy.LineSeries.new(root, {
+        name: "Expenses",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "expenses",
+        categoryXField: "year",
+        tooltip:am5.Tooltip.new(root, {
+          pointerOrientation:"horizontal",
+          labelText:"{name} in {categoryX}: {valueY} {info}"
+        })    
+      })
+    );
+
+    series2.strokes.template.setAll({
+      strokeWidth: 3,
+      templateField: "strokeSettings"
+    });
+
+
+    series2.data.setAll(data);
+
+    series2.bullets.push(function () {
+      return am5.Bullet.new(root, {
+        sprite: am5.Circle.new(root, {
+          strokeWidth: 3,
+          stroke: series2.get("stroke"),
+          radius: 5,
+          fill: root.interfaceColors.get("background")
+        })
       });
-    }
-    x.data = data;
-    let dateAxis = x.xAxes.push(new am4charts.DateAxis());
-    dateAxis.renderer.grid.template.location = 0;
-    let valueAxis: any = x.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.tooltip.disabled = true;
-    valueAxis.renderer.minWidth = 35;
-    let series = x.series.push(new am4charts.LineSeries());
-    series.dataFields.dateX = "date";
-    series.dataFields.valueY = "value";
-    series.tooltipText = "{valueY.value}";
-    x.cursor = new am4charts.XYCursor();
-    let scrollbarX = new am4charts.XYChartScrollbar();
-    scrollbarX.series.push(series);
-    x.scrollbarX = scrollbarX;
-    chart.current = x;
-    return () => x.dispose();
-  }, []);
-  console.log();
-  
-  return <div id='chartdiv' style={{ height: "100vh" }} ref={chart}></div>;
-};
-export default AM5;
+    });
 
+    chart.set("cursor", am5xy.XYCursor.new(root, {}));
+
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    let legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerX: am5.p50,
+        x: am5.p50
+      })
+    );
+    legend.data.setAll(chart.series.values);
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    chart.appear(1000, 100);
+    series1.appear();
+    return () => root.dispose();
+  }, []);
+
+  return <div id="chartdiv" style={{ height: "100vh" }}></div>;
+};
+
+export default Barchart;
