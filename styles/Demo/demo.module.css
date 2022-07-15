@@ -1,0 +1,675 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+.demoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #f5f5f7;
+  font-family: "DM Sans", sans-serif;
+}
+
+.demoContainerMain {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  padding: 25px;
+}
+
+.nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+}
+
+.nav .logo > h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+  background: linear-gradient(97.61deg, #7474BF -17.45%, #348AC7 108.31%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav .navOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .navOptions .navOption button {
+  border-radius: 22px;
+  border: 1px solid #5FBFDD;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: normal;
+  font-family: "DM Sans", sans-serif;
+  height: 40px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.nav .navOptions .navOption:nth-child(2) {
+  margin-left: 10px;
+}
+
+.navSubmenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navSubmenu .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #5FBFDD;
+  width: 366px;
+  height: 45px;
+  background: #FFFFFF;
+  border-radius: 31px;
+}
+
+.navSubmenu .searchBox div {
+  width: 100%;
+  height: 100%;
+  border-radius: 31px;
+  padding: 0px 8px 0px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navSubmenu .searchBox div svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+
+.navSubmenu .searchBox div input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  outline: none;
+  padding-left: 5px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.navSubmenu .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(158, 72, 255, 0.05) 124.84%);
+  border-radius: 11px;
+  border: 2px solid #975BFF;
+  outline: none;
+  color: #191C20;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  padding: 15px;
+  width: 106px;
+  height: 36px;
+  font-size: 10px;
+  background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(151, 91, 255, 0.05) 104.74%, rgba(158, 72, 255, 0.05) 124.84%);
+}
+
+.navSubmenu .filter option {
+  font-family: "DM Sans", sans-serif;
+}
+
+.card {
+  height: 158px;
+  margin-top: 20px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(47.92%, #FFFFFF), to(#F5F5F5));
+  background: linear-gradient(180deg, #FFFFFF 47.92%, #F5F5F5 100%);
+  -webkit-box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.05);
+          box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.05);
+  border-radius: 11px;
+}
+
+.card .cardTop {
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 95%;
+      grid-template-columns: 5% 95%;
+}
+
+.card .cardTop .cardLeft {
+  width: 65px;
+  height: 65px;
+  background: #C4C4C4;
+  -webkit-box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+}
+
+.card .cardTop .cardRight .cartRightTop {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 80%;
+      grid-template-columns: 20% 80%;
+  height: 35px;
+}
+
+.card .cardTop .cardRight .cartRightTop h2 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.card .cardTop .cardRight .cartRightTop ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.card .cardTop .cardRight .cartRightTop ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  color: #191C20;
+}
+
+.card .cardTop .cardRight .cartRightTop ul li svg {
+  margin-right: 10px;
+}
+
+.card .cardTop .cardRight .cartRightBottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card .cardTop .cardRight .cartRightBottom p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.card .cardMiddle {
+  display: none;
+}
+
+.card .cardBottom {
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35% 65%;
+      grid-template-columns: 35% 65%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .cardBottom .cardBottomLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .cardBottom .cardBottomLeft button {
+  cursor: pointer;
+  width: 108px;
+  height: 28px;
+  border-radius: 22px;
+  border: 1px solid #5FBFDD;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "DM Sans", sans-serif;
+}
+
+.card .cardBottom .cardBottomLeft button:nth-child(1) {
+  background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.3) -33.43%, rgba(40, 89, 244, 0.3) 133.18%, rgba(42, 68, 208, 0.3) 133.18%);
+}
+
+.card .cardBottom .cardBottomLeft button:nth-child(2) {
+  background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.25) -33.43%, rgba(40, 89, 244, 0.25) 133.18%, rgba(42, 68, 208, 0.25) 133.18%);
+  border-radius: 22px;
+}
+
+.card .cardBottom .cardBottomLeft button:nth-child(3) {
+  background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.15) -33.43%, rgba(40, 89, 244, 0.15) 133.18%, rgba(42, 68, 208, 0.15) 133.18%);
+}
+
+.card .cardBottom .cardBottomLeft button:nth-child(4) {
+  background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.1) -33.43%, rgba(40, 89, 244, 0.1) 133.18%, rgba(42, 68, 208, 0.1) 133.18%);
+}
+
+.card .cardBottom .cardBottomLeft button:nth-child(5) {
+  background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.05) -33.43%, rgba(40, 89, 244, 0.05) 133.18%, rgba(42, 68, 208, 0.05) 133.18%);
+}
+
+.card .cardBottom .cardBottomRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .cardBottom .cardBottomRight button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(158, 72, 255, 0.05) 124.84%);
+  border-radius: 11px;
+  border: 2px solid #975BFF;
+  outline: none;
+  color: #191C20;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  padding: 15px;
+  width: 106px;
+  height: 36px;
+  font-size: 10px;
+  background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(151, 91, 255, 0.05) 104.74%, rgba(158, 72, 255, 0.05) 124.84%);
+}
+
+.card .cardBottom .cardBottomRight button svg {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+  }
+  .nav .navOptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav .navOptions .navOption button {
+    font-size: 10px;
+    height: 30px;
+    width: 100px;
+  }
+  .nav .navOptions .navOption:nth-child(2) {
+    margin-left: 10px;
+  }
+  .navSubmenu h4 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .navSubmenu .searchBox {
+    height: 40px;
+    padding: 0px 0px 0px 20px;
+    font-size: 14px;
+  }
+  .navSubmenu .searchBox div {
+    width: 100%;
+    border-radius: 31px;
+    padding: 0px 8px 0px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navSubmenu .searchBox div svg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+  }
+  .navSubmenu .searchBox div svg:nth-child(1) {
+    height: 12px;
+    width: 12px;
+  }
+  .navSubmenu .searchBox div .crossIcon {
+    display: none;
+  }
+  .card {
+    height: 258px;
+  }
+  .card .cardTop {
+    padding: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 15% 85%;
+        grid-template-columns: 15% 85%;
+  }
+  .card .cardTop .cardLeft {
+    width: 65px;
+    height: 65px;
+    width: 65px;
+    height: 65px;
+    -webkit-filter: drop-shadow(-2px 6px 17px rgba(0, 0, 0, 0.15));
+            filter: drop-shadow(-2px 6px 17px rgba(0, 0, 0, 0.15));
+  }
+  .card .cardTop .cardRight .cartRightTop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .card .cardTop .cardRight .cartRightTop h2 {
+    position: relative;
+    top: 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    width: 100%;
+    text-align: left;
+    height: 20px;
+  }
+  .card .cardTop .cardRight .cartRightTop ul {
+    width: 100%;
+  }
+  .card .cardTop .cardRight .cartRightTop ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .card .cardTop .cardRight .cartRightTop ul li svg {
+    margin-right: 5px;
+  }
+  .card .cardTop .cardRight .cartRightBottom {
+    display: none;
+  }
+  .card .cardMiddle {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    padding: 10px;
+  }
+  .card .cardMiddle .cardMiddleDiv {
+    width: 100%;
+  }
+  .card .cardMiddle .cardMiddleDiv p {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+  .card .cardBottom {
+    padding: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70% 30%;
+        grid-template-columns: 70% 30%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .card .cardBottom .cardBottomLeft {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    line-height: 20;
+  }
+  .card .cardBottom .cardBottomLeft button {
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 5px 7px;
+    gap: 10px;
+    border: 1px solid #5FBFDD;
+    font-size: 9px;
+    width: 114px;
+    height: 28px;
+    border-radius: 22px;
+    margin-left: 2px;
+  }
+  .card .cardBottom .cardBottomLeft button:nth-child(4), .card .cardBottom .cardBottomLeft button:nth-child(5) {
+    margin-top: 5px;
+  }
+  .card .cardBottom .cardBottomLeft button > :nth-child(4), .card .cardBottom .cardBottomLeft button > :nth-child(5) {
+    margin-top: 10px;
+  }
+  .card .cardBottom .cardBottomRight {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .card .cardBottom .cardBottomRight button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(158, 72, 255, 0.05) 124.84%);
+    border-radius: 11px;
+    border: 2px solid #975BFF;
+    outline: none;
+    color: #191C20;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    padding: 10px;
+    width: 106px;
+    height: 36px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .card .cardBottom .cardBottomRight button svg {
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .card .cardTop {
+    -ms-grid-columns: 8% 92%;
+        grid-template-columns: 8% 92%;
+  }
+  .card .cardBottom {
+    -ms-grid-columns: 45% 55%;
+        grid-template-columns: 45% 55%;
+  }
+}
+/*# sourceMappingURL=demo.module.css.map */

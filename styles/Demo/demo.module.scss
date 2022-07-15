@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+// variables
+
+$primary-color: #5FBFDD;
+$white-color: #fafafa;
+$bg-color: #f5f5f7;
+$black-color: #000;
+$gray-color: #c4c4c4;
+$fontFamily:'DM Sans',sans-serif;
+$light-black : rgba(0,0,0,0.7);
+
+@mixin flexBox($direction, $justifyContent, $alignItems) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItems;    
+}
+
+@mixin chip(){
+    cursor: pointer;
+    width: 108px;
+    height: 28px;
+    border-radius: 22px;
+    border: 1px solid $primary-color;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9px;
+    color: $light-black;
+    font-family: $fontFamily;
+}
+
+@mixin chipTab() {
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 5px 7px;
+    gap: 10px;
+    border: 1px solid $primary-color;
+    font-size: 9px;
+    width: 114px;
+    height: 28px;
+    border-radius: 22px;
+    margin-left: 2px;
+}
+
+@mixin selectCommonStyle() {
+    @include flexBox(row, center, center);
+    background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(158, 72, 255, 0.05) 124.84%);
+    border-radius: 11px;
+    border: 2px solid #975BFF;
+    outline: none;
+    color: #191C20;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@mixin select(){
+    @include selectCommonStyle();
+    padding: 15px;
+    width: 106px;
+    height: 36px;
+    font-size: 10px;
+    background: linear-gradient(159.13deg, rgba(108, 199, 255, 0.05) -58.92%, rgba(132, 138, 255, 0.05) 29.13%, rgba(151, 91, 255, 0.05) 104.74%, rgba(158, 72, 255, 0.05) 124.84%);
+}
+
+@mixin selectTab {
+    @include selectCommonStyle();
+    padding: 10px;
+    width: 106px;
+    height: 36px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.demoContainer{
+    @include flexBox(row, center, center);
+    width: 100%;
+    background-color: $bg-color;
+    font-family: $fontFamily;
+}
+
+.demoContainerMain{
+    width: 100%;
+    height: 100%;
+    background-color: $white-color;
+    padding: 25px;
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    .logo > h2{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: uppercase;
+        background: linear-gradient(97.61deg, #7474BF -17.45%, #348AC7 108.31%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .navOptions {
+        @include flexBox(row, flex-end, center);
+        .navOption {
+            button {
+                border-radius: 22px;
+                border: 1px solid $primary-color;
+                font-size: 12px;
+                font-weight: 400;
+                color: $light-black;
+                letter-spacing: normal;
+                font-family: $fontFamily;
+                height: 40px;
+                width: 150px;
+                cursor: pointer;
+            }
+        }
+        .navOption:nth-child(2) {
+            margin-left: 10px;
+        }
+    } 
+}
+
+.navSubmenu{
+    @include flexBox(row, space-between, center);
+    .searchBox{
+        @include flexBox(row, center, center);
+        border : 1px solid $primary-color;
+        width: 366px;
+        height: 45px;
+        background: #FFFFFF;
+        border-radius: 31px;
+        div{
+            width: 100%;
+            height: 100%;
+            border-radius: 31px;
+            padding: 0px 8px 0px 8px;
+            @include flexBox(row, space-between, center);
+            svg {
+                @include flexBox(row, center, center);
+                cursor: pointer;
+                height: 14px;
+                width: 14px;
+            }
+            input{
+                flex : 1;
+                border : none;
+                outline : none;
+                padding-left: 5px;
+                font-family: $fontFamily;
+            }
+        }
+        
+    }
+    .filter {
+        @include select();
+        option {
+            font-family: $fontFamily;
+        }
+    }
+}
+
+//card css
+
+.card{
+    height: 158px;
+    margin-top: 20px;
+    background: linear-gradient(180deg, #FFFFFF 47.92%, #F5F5F5 100%);
+    box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.05);
+    border-radius: 11px;
+    .cardTop{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 5% 95%;
+        .cardLeft{
+                width: 65px;
+                height: 65px;
+                background: #C4C4C4;
+                box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.15);
+                border-radius: 11px;
+        }
+        .cardRight{
+            .cartRightTop{
+                display: grid;
+                grid-template-columns:20% 80%;
+                height: 35px;
+                
+                h2{
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 700;
+                }
+                ul{
+                    @include flexBox(row,space-between,center);
+                    list-style: none;
+                    li{
+                        @include flexBox(row, center, center);
+                        font-size: 12px;
+                        color: #191C20;
+                        svg{
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            .cartRightBottom{
+                display: flex;
+                p{
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
+    .cardMiddle {
+        display: none;
+    }
+    .cardBottom{
+        padding: 10px;
+        display: grid;
+        grid-template-columns:35% 65%;
+        align-items: center;
+        .cardBottomLeft {
+            @include flexBox(row, space-between, center);
+            button{
+                @include chip();
+            }
+            button:nth-child(1){
+                background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.3) -33.43%, rgba(40, 89, 244, 0.3) 133.18%, rgba(42, 68, 208, 0.3) 133.18%);
+            }
+            button:nth-child(2){
+                background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.25) -33.43%, rgba(40, 89, 244, 0.25) 133.18%, rgba(42, 68, 208, 0.25) 133.18%);
+                    border-radius: 22px;
+            }
+            button:nth-child(3){
+                background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.15) -33.43%, rgba(40, 89, 244, 0.15) 133.18%, rgba(42, 68, 208, 0.15) 133.18%);
+            }
+            button:nth-child(4){
+                background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.1) -33.43%, rgba(40, 89, 244, 0.1) 133.18%, rgba(42, 68, 208, 0.1) 133.18%);
+            }
+            button:nth-child(5){
+                background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.05) -33.43%, rgba(40, 89, 244, 0.05) 133.18%, rgba(42, 68, 208, 0.05) 133.18%);
+            }
+        }
+        .cardBottomRight{
+            @include flexBox(row, flex-end, center);
+            button{
+                @include select();
+                svg {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:768px){
+    .nav {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+
+        .navOptions {
+            @include flexBox(row, flex-end, center);
+
+            .navOption {
+                button {
+                    font-size: 10px;
+                    height: 30px;
+                    width: 100px;
+                }
+            }
+
+            .navOption:nth-child(2) {
+                margin-left: 10px;
+            }
+        }
+    }
+    .navSubmenu {
+        h4{
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+        }
+        .searchBox {
+            height: 40px;
+            padding: 0px 0px 0px 20px;
+            font-size: 14px;
+            div {
+                width: 100%;
+                border-radius: 31px;
+                padding: 0px 8px 0px 0px;
+                @include flexBox(row, space-between, center);
+
+                svg {
+                    @include flexBox(row, center, center);
+                    cursor: pointer;
+                    &:nth-child(1){
+                        height:12px;
+                        width: 12px;
+                    }
+                }
+                .crossIcon{
+                    display: none;
+                }
+            }
+
+        }
+    }
+    .card {
+        height: 258px;
+        .cardTop {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 15% 85%;
+            .cardLeft {
+                width: 65px;
+                height: 65px;
+                width: 65px;
+                height: 65px;
+                filter: drop-shadow(-2px 6px 17px rgba(0, 0, 0, 0.15));
+            }
+
+            .cardRight {
+                .cartRightTop {
+                    @include flexBox(column, center, center);
+                        
+                    h2{
+                        position: relative;
+                        top: 15px;
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 18px;
+                        width: 100%;
+                        text-align: left;
+                        height: 20px;
+                    }
+                    ul {
+                        width: 100%;
+                        
+                        li {
+                            @include flexBox(row, center, center);
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 12px;
+                            svg {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+                .cartRightBottom{
+                    display: none; 
+                   
+                }
+            }
+        }
+        .cardMiddle {
+            display: grid;
+            grid-template-columns: 100%;
+            padding: 10px;
+            .cardMiddleDiv {
+                width: 100%;
+                p {
+                    font-size : 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .cardBottom {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 70% 30%;
+            align-items: center;
+
+            .cardBottomLeft {
+                @include flexBox(row, flex-start, center);
+                flex-wrap: wrap;
+                line-height: 20;
+                button {
+                    @include chipTab();
+                    &:nth-child(4), &:nth-child(5){
+                        margin-top: 5px;
+                    }
+                }
+                button>:nth-child(4), button>:nth-child(5){
+                    margin-top: 10px;
+                }
+            }
+
+            .cardBottomRight {
+                @include flexBox(row, flex-end, center);
+                button {
+                    @include selectTab();
+
+                    svg {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1400px){
+    .card {
+            .cardTop {
+                grid-template-columns: 8% 92%;    
+            }
+            .cardBottom {
+                grid-template-columns: 45% 55%; 
+            }
+        }
+}

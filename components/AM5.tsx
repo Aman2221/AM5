@@ -2,6 +2,7 @@ import { useLayoutEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import styles from '../styles/AM5.module.css';
 
 const Barchart = () => {
   useLayoutEffect(() => {
@@ -173,7 +174,7 @@ const Barchart = () => {
     return () => root.dispose();
   }, []);
 
-  return <div id="chartdiv" style={{ height: "100vh" }}></div>;
+  return <div className={`${styles.chartDiv}`} id="chartdiv" style={{ height: "100vh" }}></div>;
 };
 
 export default Barchart;
