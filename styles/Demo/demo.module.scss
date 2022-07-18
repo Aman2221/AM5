@@ -18,8 +18,8 @@ $light-black : rgba(0,0,0,0.7);
 }
 
 @mixin chip(){
+    @include flexBox(row,center, center);
     cursor: pointer;
-    width: 108px;
     height: 28px;
     border-radius: 22px;
     border: 1px solid $primary-color;
@@ -28,19 +28,12 @@ $light-black : rgba(0,0,0,0.7);
     font-size: 9px;
     color: $light-black;
     font-family: $fontFamily;
+    padding: 2px 10px;
 }
 
 @mixin chipTab() {
-    cursor: pointer;
-    box-sizing: border-box;
     padding: 5px 7px;
     gap: 10px;
-    border: 1px solid $primary-color;
-    font-size: 9px;
-    width: 114px;
-    height: 28px;
-    border-radius: 22px;
-    margin-left: 2px;
 }
 
 @mixin selectCommonStyle() {
@@ -132,6 +125,7 @@ $light-black : rgba(0,0,0,0.7);
         height: 45px;
         background: #FFFFFF;
         border-radius: 31px;
+        padding: 0px 0px 0px 10px;
         div{
             width: 100%;
             height: 100%;
@@ -141,45 +135,75 @@ $light-black : rgba(0,0,0,0.7);
             svg {
                 @include flexBox(row, center, center);
                 cursor: pointer;
-                height: 14px;
-                width: 14px;
+                &:nth-child(1) {
+                    height: 14px;
+                    width: 13px;
+                }
+            }
+            .crossIcon {
+                height: 7px;
+                width: 7px;
+                margin-right: 4px;
             }
             input{
                 flex : 1;
                 border : none;
                 outline : none;
-                padding-left: 5px;
+                padding-left: 10px;
                 font-family: $fontFamily;
             }
         }
         
     }
     .filter {
-        @include select();
-        option {
-            font-family: $fontFamily;
+        @include flexBox(row, center, center);
+        width: 140px;
+        padding: 13px 20px;
+        height: 36px;
+        border-radius: 9px;
+        border : 2px solid #975BFF;;
+        outline: none;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        gap: 17px;
+        select {
+            width: 72px;
+            height: 14px;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 10px;
+            border : none;
+            outline: none;
+            cursor: pointer;
+            background: none;
+            option {
+                font-family: $fontFamily;
+                font-size: 10px;
+            }
         }
+        
     }
 }
 
 //card css
 
 .card{
-    height: 158px;
-    margin-top: 20px;
+    margin-top: 30px;
     background: linear-gradient(180deg, #FFFFFF 47.92%, #F5F5F5 100%);
     box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.05);
     border-radius: 11px;
+    padding: 20px 20px 30px 20px;
     .cardTop{
-        padding: 10px;
         display: grid;
         grid-template-columns: 5% 95%;
         .cardLeft{
-                width: 65px;
-                height: 65px;
-                background: #C4C4C4;
-                box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.15);
-                border-radius: 11px;
+            width: 65px;
+            height: 65px;
+            background: #C4C4C4;
+            box-shadow: -2px 6px 17px rgba(0, 0, 0, 0.15);
+            border-radius: 11px;
         }
         .cardRight{
             .cartRightTop{
@@ -191,8 +215,10 @@ $light-black : rgba(0,0,0,0.7);
                     font-size: 18px;
                     font-style: normal;
                     font-weight: 700;
+                    margin: 0;
                 }
                 ul{
+                    margin: 0;
                     @include flexBox(row,space-between,center);
                     list-style: none;
                     li{
@@ -220,29 +246,28 @@ $light-black : rgba(0,0,0,0.7);
         display: none;
     }
     .cardBottom{
-        padding: 10px;
-        display: grid;
-        grid-template-columns:35% 65%;
+        @include flexBox(row, space-between, center);
         align-items: center;
         .cardBottomLeft {
-            @include flexBox(row, space-between, center);
-            button{
+            @include flexBox(row, flex-start, center);
+            gap: 10px;
+            span{
                 @include chip();
             }
-            button:nth-child(1){
+            span:nth-child(1){
                 background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.3) -33.43%, rgba(40, 89, 244, 0.3) 133.18%, rgba(42, 68, 208, 0.3) 133.18%);
             }
-            button:nth-child(2){
+            span:nth-child(2){
                 background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.25) -33.43%, rgba(40, 89, 244, 0.25) 133.18%, rgba(42, 68, 208, 0.25) 133.18%);
                     border-radius: 22px;
             }
-            button:nth-child(3){
+            span:nth-child(3){
                 background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.15) -33.43%, rgba(40, 89, 244, 0.15) 133.18%, rgba(42, 68, 208, 0.15) 133.18%);
             }
-            button:nth-child(4){
+            span:nth-child(4){
                 background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.1) -33.43%, rgba(40, 89, 244, 0.1) 133.18%, rgba(42, 68, 208, 0.1) 133.18%);
             }
-            button:nth-child(5){
+            span:nth-child(5){
                 background: linear-gradient(106.25deg, rgba(95, 191, 221, 0.05) -33.43%, rgba(40, 89, 244, 0.05) 133.18%, rgba(42, 68, 208, 0.05) 133.18%);
             }
         }
@@ -295,7 +320,9 @@ $light-black : rgba(0,0,0,0.7);
                 border-radius: 31px;
                 padding: 0px 8px 0px 0px;
                 @include flexBox(row, space-between, center);
-
+                input{
+                    padding-left: 12px;
+                }
                 svg {
                     @include flexBox(row, center, center);
                     cursor: pointer;
@@ -312,11 +339,10 @@ $light-black : rgba(0,0,0,0.7);
         }
     }
     .card {
-        height: 258px;
+        padding: 20px 20px 25px 20px;
         .cardTop {
-            padding: 10px;
             display: grid;
-            grid-template-columns: 15% 85%;
+            grid-template-columns: 15% 85% !important;
             .cardLeft {
                 width: 65px;
                 height: 65px;
@@ -328,10 +354,7 @@ $light-black : rgba(0,0,0,0.7);
             .cardRight {
                 .cartRightTop {
                     @include flexBox(column, center, center);
-                        
                     h2{
-                        position: relative;
-                        top: 15px;
                         font-style: normal;
                         font-weight: 700;
                         font-size: 18px;
@@ -341,9 +364,10 @@ $light-black : rgba(0,0,0,0.7);
                     }
                     ul {
                         width: 100%;
-                        
+                        @include flexBox(row, space-between, center);
+                        margin-top: 10px;
                         li {
-                            @include flexBox(row, center, center);
+                            @include flexBox(row, flex-start, center);
                                 font-style: normal;
                                 font-weight: 500;
                                 font-size: 12px;
@@ -372,9 +396,7 @@ $light-black : rgba(0,0,0,0.7);
             }
         }
         .cardBottom {
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 70% 30%;
+            @include flexBox(row, space-between, center);
             align-items: center;
 
             .cardBottomLeft {
@@ -412,7 +434,7 @@ $light-black : rgba(0,0,0,0.7);
                 grid-template-columns: 8% 92%;    
             }
             .cardBottom {
-                grid-template-columns: 45% 55%; 
+                @include flexBox(row, space-between, center);
             }
         }
 }

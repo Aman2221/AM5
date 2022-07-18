@@ -3,8 +3,9 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import { API } from '../interfaces/data';
 
-const GridTest = ({data} : { data : any}) => {
+const GridTest = ({data} : { data : API[] | undefined}) => {
   const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
   const [columnDefs, setColumnDefs] = useState([
     { field: 'bussinessDescription', filter: 'agTextColumnFilter', minWidth: 180 },
@@ -30,7 +31,7 @@ const GridTest = ({data} : { data : any}) => {
     };
   }, []);
     
-
+  console.log(data,"Pivot Table")
 
   return (
     <div style={{ width: '100%', height: '100vh'}}>
