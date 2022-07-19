@@ -230,8 +230,8 @@
 .card .cardTop {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 5% 95%;
-      grid-template-columns: 5% 95%;
+  -ms-grid-columns: 80px calc(100% - 80px);
+      grid-template-columns: 80px calc(100% - 80px);
 }
 
 .card .cardTop .cardLeft {
@@ -270,9 +270,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   list-style: none;
 }
 
@@ -544,8 +544,6 @@
   .card .cardTop {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 15% 85% !important;
-        grid-template-columns: 15% 85% !important;
   }
   .card .cardTop .cardLeft {
     width: 65px;
@@ -726,10 +724,6 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .card .cardTop {
-    -ms-grid-columns: 8% 92%;
-        grid-template-columns: 8% 92%;
-  }
   .card .cardBottom {
     display: -webkit-box;
     display: -ms-flexbox;

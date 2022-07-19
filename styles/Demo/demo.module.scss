@@ -197,7 +197,7 @@ $light-black : rgba(0,0,0,0.7);
     padding: 20px 20px 30px 20px;
     .cardTop{
         display: grid;
-        grid-template-columns: 5% 95%;
+        grid-template-columns: 80px calc(100% - 80px);
         .cardLeft{
             width: 65px;
             height: 65px;
@@ -219,7 +219,7 @@ $light-black : rgba(0,0,0,0.7);
                 }
                 ul{
                     margin: 0;
-                    @include flexBox(row,space-between,center);
+                    @include flexBox(row,space-between,flex-start);
                     list-style: none;
                     li{
                         @include flexBox(row, center, center);
@@ -349,7 +349,6 @@ $light-black : rgba(0,0,0,0.7);
         padding: 20px 20px 25px 20px;
         .cardTop {
             display: grid;
-            grid-template-columns: 15% 85% !important;
             .cardLeft {
                 width: 65px;
                 height: 65px;
@@ -437,9 +436,6 @@ $light-black : rgba(0,0,0,0.7);
 
 @media screen and (max-width:1400px){
     .card {
-            .cardTop {
-                grid-template-columns: 8% 92%;    
-            }
             .cardBottom {
                 @include flexBox(row, space-between, center);
             }
