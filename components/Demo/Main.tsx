@@ -3,6 +3,7 @@ import styles from '../../styles/Demo/demo.module.css'
 import DemoCard from './DemoCard';
 import Pivot from '../../pages/Pivot';
 import { API } from "../../interfaces/data";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Main = () => {
 
@@ -81,6 +82,7 @@ const Main = () => {
                     </select>
                 </div>
             </div>
+            { value.length > 0 ? (<div className={value.length < 4 ? styles.show : styles.hide }><CircularProgress color="success"/></div>) : (<DemoCard data={data} value={value}/>)}
             { 
                 view ? (
                     <Pivot data={data}/>

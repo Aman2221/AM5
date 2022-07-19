@@ -444,6 +444,16 @@
   margin-right: 5px;
 }
 
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .nav {
     display: -ms-grid;

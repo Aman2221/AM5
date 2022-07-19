@@ -82,9 +82,7 @@ const DemoCard = ({data, value} :
                             </div>           
                         )
                     })
-                ) : (
-                    <CircularProgress />
-                )
+                ) : ("")
             }
         </>
 
